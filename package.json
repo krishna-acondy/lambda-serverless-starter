@@ -1,0 +1,27 @@
+{
+  "name": "service-name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "SLS_DEBUG=* serverless deploy --verbose",
+    "deploy:ci": "SLS_DEBUG=* serverless deploy --verbose --stage $DEPLOY_TARGET",
+    "deploy:production": "SLS_DEBUG=* serverless deploy --verbose --stage production",
+    "deploy-function": "SLS_DEBUG=* serverless deploy function --function",
+    "lint": "prettier --check --no-config '{utils,services}/**/*.{ts,tsx,js,jsx,html,css,sass,less,json,yml,md,graphql}'",
+    "lint:fix": "prettier --write --no-config '{utils,services}/**/*.{ts,tsx,js,jsx,html,css,sass,less,json,yml,md,graphql}'",
+    "package": "SLS_DEBUG=* serverless package --verbose --stage $DEPLOY_TARGET"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "2.669.0"
+  },
+  "devDependencies": {
+    "eslint": "5.12.0",
+    "eslint-plugin-promise": "4.0.1",
+    "prettier": "2.0.2",
+    "serverless": "1.67.0",
+    "serverless-domain-manager": "3.3.1"
+  }
+}

@@ -1,0 +1,29 @@
+name: Check Build
+on:
+  pull_request:
+    # No need to run this check on PRs to master as develop will do a full build anyway.
+    branches-ignore:
+      - "master"
+
+jobs:
+  build:
+    name: Check Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Prettier
+        run: yarn run lint
+
+      # Build the Lambdas, but do not deploy.
+      - name: Package Serverless
+        run: yarn run package
+        env:
+          DEPLOY_TARGET: staging
