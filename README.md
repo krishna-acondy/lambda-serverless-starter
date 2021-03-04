@@ -78,7 +78,7 @@ The response should look like:
 }
 ```
 
-Copy `AccessKeyId`, `SecretAccessKey` and `SessionToken` into `./.aws/credentials`, eg:
+Copy `AccessKeyId`, `SecretAccessKey` and `SessionToken` into `~/.aws/credentials`, eg:
 
 ```
 [default]
@@ -89,7 +89,7 @@ aws_secret_access_key = <your key here>
 
 If you're using MFA, you will also need to generate a session token and set it as `aws_session_token`.
 
-### .aws/credentials
+### ~/.aws/credentials
 
 You can set the title of the block to a less cryptic name e.g. my-service-staging.
 
