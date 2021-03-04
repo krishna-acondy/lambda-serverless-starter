@@ -128,3 +128,7 @@ AWS_PROFILE=my-service-staging yarn run deploy-function <function-name>
 ```
 AWS_PROFILE=my-service-staging yarn run deploy
 ```
+
+### Potential Gotchas
+* Your `credentials` file should have the `region` property set to the correct AWS region e.g. `eu-west-1`.
+* Make sure your credentials are up-to-date and haven't expired, as this can cause errors that are hard to diagnose.
